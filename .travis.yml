@@ -1,33 +1,8 @@
-language: c++
+
+language: csharp
+solution: solution-name.sln
 
 branches:
   only:
   - master
   - TestRep-CB
-
-dist: trusty
-
-# The PAL unit tests have a dependency on the PST timezone
-env:
-  - export TZ=':/usr/share/zoneinfo/America/Los_Angeles'
-
-sudo: required
-
-addons:
-  apt:
-    packages:
-      - pkg-config
-      - libpam0g-dev
-      - librpm-dev
-      - libssl-dev
-      - libcurl4-openssl-dev
-      - rpm
-      - time
-
-before_install:
-  - date
-
-script:
-  - cd build
-  - ./configure
-  - make all test
